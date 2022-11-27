@@ -34,6 +34,10 @@ function renderCard() {
 
 document.addEventListener('DOMContentLoaded', function () {
     renderCard()
+
+    const data = getCardList()
+    const length = data.reduce((acc, {quantity}) => acc + quantity, 0)
+    document.getElementById("cart-btn").dataset.content = length
 });
 
 function getCardList() {
@@ -55,8 +59,10 @@ function getCardList() {
 function setCardList(data) {
     try {
         localStorage.setItem(CARD_KEY, JSON.stringify(data));
-        cartItem.classList.add('active');
         renderCard()
+
+        const length = data.reduce((acc, {quantity}) => acc + quantity, 0)
+        document.getElementById("cart-btn").dataset.content = length
     } catch (e) {
         console.error(e)
     }

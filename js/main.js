@@ -24,7 +24,6 @@ products?.forEach(({img, oldPrice, price, title, id, stars}) => {
         <div class="icons">
             <button onclick="addToCard(${id})" class="fas fa-shopping-cart"></button>
             <button id="icon-${id}" class="fas fa-heart" onclick="likeProduct(${id})"></button>
-            <a href="#" class="fas fa-eye"></a>
         </div>
         <div class="image">
             <img src="${img}" alt="">

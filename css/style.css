@@ -111,6 +111,24 @@ section{
     color:var(--main-color) !important;
 }
 
+#cart-btn {
+    position: relative;
+}
+
+#cart-btn:after {
+    content: attr(data-content);
+    background: #ffffff;
+    color: #000000;
+    position: absolute;
+    bottom: -4px;
+    right: -2px;
+    font-size: 12px;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+}
+
 #menu-btn{
     display: none;
 }
