@@ -23,7 +23,7 @@ products?.forEach(({img, oldPrice, price, title, id, stars}) => {
     tempDiv.innerHTML = `
         <div class="icons">
             <button onclick="addToCard(${id})" class="fas fa-shopping-cart"></button>
-            <a href="#" class="fas fa-heart"></a>
+            <button id="icon-${id}" class="fas fa-heart" onclick="likeProduct(${id})"></button>
             <a href="#" class="fas fa-eye"></a>
         </div>
         <div class="image">
@@ -98,3 +98,7 @@ function submitHandler() {
 document.querySelector(".modal-close").addEventListener("click", () => {
     document.getElementById("open-modal").classList.remove("modal-window-open");
 })
+
+function likeProduct(id) {
+    document.getElementById(`icon-${id}`)?.classList.toggle("liked")
+}
