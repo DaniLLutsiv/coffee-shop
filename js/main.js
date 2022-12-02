@@ -56,13 +56,23 @@ reviews?.forEach(({img, id, stars, desc, name}) => {
         <img src="${img}" class="user" alt="">
         <h3>${name}</h3>
         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
+            
         </div>
     `;
+
+    Array.from({length: 5}).map((_, i) => {
+        const star = document.createElement("i")
+
+        if (i + 1 <= stars) {
+            star.classList.add("fas", "fa-star")
+        } else if (i + 0.5 === stars) {
+            star.classList.add("fas", "fa-star-half-alt")
+        } else {
+            star.classList.add("far", "fa-star")
+        }
+
+        tempDiv.querySelector(".stars").appendChild(star)
+    })
 
     reviewsList?.insertAdjacentElement("beforeend", tempDiv)
 })
